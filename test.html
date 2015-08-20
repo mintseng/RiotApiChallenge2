@@ -1,76 +1,27 @@
-<>
-				
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>WEDIDITBOYZ</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <h1>GETMETORIOT</h1>
+    <script> 
+    	function getRiot()
+    	{
+    		var url = "https://global.api.pvp.net/api/lol/static-data/na/v1.2/item";
+    		var api_key = "api_key=5e44f6de-54bc-4056-8c13-1d938c8bce7f";
+    		var xhr = new XMLHttpRequest();
+    		xhr.open("GET", url + "?" + api_key, false);
+    		xhr.send();
+    		console.log(xhr.response);
+    		document.getElementById("but1").innerHTML = xhr.responseText;
+    	}
+    </script>
+    <div>
+    	<button type="button" id = "but1" onclick="getRiot();">Click Me!</button>
+    </div>
+  </body>
+</html>

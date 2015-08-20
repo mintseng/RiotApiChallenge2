@@ -11,7 +11,7 @@
         hi willis is stupid
         
         <div>
-            <input type = "button" value="test" onclick="myFunction();"/>
+            <input type = "button" value="press me!" onclick="myFunction();"/>
             <p id="test" style="align-self: center"></p>
         </div>
     </body>
@@ -25,11 +25,11 @@
         var url = "https://global.api.pvp.net/api/lol/static-data/na/v1.2/item"
         xhr.open("GET", url + "?" + apikey, false);
         // false means that it is not asynchronous
-        xhr.setRequestHeader('Accept-Language', 'en-us')
         xhr.send();
         console.log(xhr.response)
         var json = JSON.parse(xhr.response)
         console.log(json)
+        document.getElementById("test").innerHTML = xhr.responseText
     }
 </script>
 

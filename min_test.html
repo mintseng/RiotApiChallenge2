@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+            <title>title</title>
+            <link rel="stylesheet" href="style.css">
+                <script src="script.js"></script>
+                </head>
+    <body>
+        <!-- page content -->
+        hi willis is stupid
+        
+        <div>
+            <input type = "button" value="test" onclick="myFunction();"/>
+            <p id="test" style="align-self: center"></p>
+        </div>
+    </body>
+
+<script>
+    var apikey = "api_key=c08552dc-c2ce-4407-96fc-a0bfd997204d";
+    console.log("hi");
+    function myFunction() {
+        document.getElementById("test").innerHTML = "WILLIS IS SO GAY";
+        var xhr = new XMLHttpRequest();
+        var url = "https://global.api.pvp.net/api/lol/static-data/na/v1.2/item"
+        xhr.open("GET", url + "?" + apikey, false);
+        // false means that it is not asynchronous
+        xhr.setRequestHeader('Accept-Language', 'en-us')
+        xhr.send();
+        console.log(xhr.response)
+        var json = JSON.parse(xhr.response)
+        console.log(json)
+    }
+</script>
+
+</html>

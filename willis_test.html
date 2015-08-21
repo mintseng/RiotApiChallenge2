@@ -11,17 +11,14 @@
     <script> 
     	function getRiot()
     	{
-    		var url = "https://global.api.pvp.net/api/lol/static-data/na/v1.2/item";
+    		var item = "https://global.api.pvp.net/api/lol/static-data/na/v1.2/item";
     		var api_key = "api_key=5e44f6de-54bc-4056-8c13-1d938c8bce7f";
     		var xhr = new XMLHttpRequest();
-    		xhr.open("GET", url + "?" + api_key, false);
+    		xhr.open("GET", item + "?" + api_key, false);
     		xhr.send();
-    		console.log(xhr.response);
-    		document.getElementById("but1").innerHTML = xhr.responseText;
+    		document.body.innerHTML = xhr.responseText;
     	}
     </script>
-    <div>
-    	<button type="button" id = "but1" onclick="getRiot();">Click Me!</button>
-    </div>
+   	<button type="button" id = "but1" onclick="getRiot();">Click Me!</button>
   </body>
 </html>

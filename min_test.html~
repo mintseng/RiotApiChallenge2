@@ -31,12 +31,8 @@
         // false means that it is not asynchronous
         xhr.send();
         json = JSON.parse(xhr.response)
-        var container = document.getElementById("testpic")
-        for (item in json["data"]) {
-            console.log(json["data"][item]["image"]["full"])
-            var img = new Image();
-            img.src = "http://ddragon.leagueoflegends.com/cdn/5.2.1/img/item/" + json["data"][item]["image"]["full"]
-            container.appendChild(img);
+        for (item in json) {
+            console.log(item["image"]["full"])
         }
         console.log(json["data"]["3725"]["image"]["full"])
         document.getElementById("test").innerHTML = xhr.responseText

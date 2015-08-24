@@ -1,24 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>WEDIDITBOYZ</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
-  </head>
-  <body>
-    <h1>GETMETORIOT</h1>
-    <script> 
-    	function getRiot()
-    	{
-    		var item = "https://global.api.pvp.net/api/lol/static-data/na/v1.2/item";
-    		var api_key = "api_key=5e44f6de-54bc-4056-8c13-1d938c8bce7f";
-    		var xhr = new XMLHttpRequest();
-    		xhr.open("GET", item + "?" + api_key, false);
-    		xhr.send();
-    		document.body.innerHTML = xhr.responseText;
-    	}
-    </script>
-   	<button type="button" id = "but1" onclick="getRiot();">Click Me!</button>
-  </body>
+	<head>
+		<meta charset="utf-8">
+		<title>WEDIDITBOYZ</title>
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<h1>GETMETORIOT</h1>
+		</body>
+	<table width = "100%" style = "height: 100%;" border = "0">
+		<tr>
+			<td><p id = "images" /></td>
+		</tr>
+	</table>
+	<script>
+    	var item = "https://global.api.pvp.net/api/lol/static-data/na/v1.2/item";
+		var api_key = "api_key=5e44f6de-54bc-4056-8c13-1d938c8bce7f";
+		var image_key = "itemListData=image&api_key=5e44f6de-54bc-4056-8c13-1d938c8bce7f";
+		var xhr = new XMLHttpRequest();
+		xhr.open("GET", item + "?" + image_key, false);
+		xhr.send();
+		var json = JSON.parse(xhr.response);
+		var display = document.getElementById("images");
+		//console.log(json);
+		for(var key in json["data"])
+		{
+			var img = document.createElement("IMG");
+			img.src = "http://ddragon.leagueoflegends.com/cdn/5.2.1/img/item/" + json["data"][key]["image"]["full"];
+			display.appendChild(img);
+			//console.log(json["data"][key]["image"]["full"]);
+		}
+		document.getElementById("im").body = display;
+	</script>
 </html>
